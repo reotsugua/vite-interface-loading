@@ -1,9 +1,10 @@
 
-@use 'variables';
+@use 'variables' as *;
 
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 :root {
@@ -15,9 +16,10 @@
 
 body {
     margin: 0;
+    font-family: $font-family-secondary;
     display: flex;
-    place-items: center;
     min-width: 320px;
     min-height: 100vh;
-    background-color: variables.$primary-color;
+    justify-content: center;
+    align-items: center;
 }

@@ -2,6 +2,40 @@
 
 
 body {
-    color: $secondary-color;
+    background-color: $light-color;
+    color: $dark-color;
+    
 }
 
+img {
+    width: 200px;
+}
+
+.loader-container {
+      text-align: center;
+      max-width: 380px;
+    }
+
+.progress-bar {
+      position: relative;
+      height: 4px;
+      background-color: $info-color;
+      overflow: hidden;
+      border-radius: 2px;
+    }
+
+    .progress-bar::before {
+      content: "";
+      position: absolute;
+      left: -40%;
+      width: 40%;
+      height: 100%;
+      background-color: $primary-color;
+      animation: slide 1.5s infinite;
+    }
+
+    @keyframes slide {
+      0%   { left: -40%; width: 40%; }
+      50%  { left: 20%; width: 60%; }
+      100% { left: 100%; width: 40%; }
+    }

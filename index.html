@@ -1,13 +1,35 @@
 <!doctype html>
 <html lang="pt-BR">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Página de redirecionamento da Euro17." />
+
+  <title>Redirecionamento Euro17</title>
+
+  <link rel="icon" type="image/x-icon" href="/src/assets/images/favicon.ico" />
+  <link rel="shortcut icon" href="/src/assets/images/favicon.ico" type="image/x-icon" />
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png" sizes="32x32">
+</head>
+
+<body>
+  <main class="loader-container">
+    <img src="/src/assets/images/logo_euro.png" alt="Logo Euro17">
+    <!-- <h1 style="font-size: 78px;">Euro17</h1> -->
+    <div class="progress-bar"></div>
+    <div id="status" class="status-message">Iniciando...</div>
+    <div id="error" class="error"></div>
+  </main>
+
+
+
+
+
+
+
+
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
 </html>
