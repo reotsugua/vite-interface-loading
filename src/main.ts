@@ -1,3 +1,53 @@
 import './styles/main.scss'
 
 
+const statusMsg = document.getElementById('status') as HTMLButtonElement;
+const errorMsg = document.getElementById('error')  as HTMLButtonElement;
+
+const steps = [
+    "Carregando interface...",
+    "Conectando ao servidor...",
+    "Verificando dados...",
+    "Finalizando processo..."
+];
+
+let index = 0;
+
+const updateMessage = (msg: any) => {
+    statusMsg.classList.remove("visible");
+    setTimeout(() => {
+        statusMsg.textContent = msg;
+        statusMsg.classList.add("visible");
+    }, 300);
+};
+
+// Mostrar mensagens cíclicas
+const stepInterval = setInterval(() => {
+    updateMessage(steps[index]);
+    index = (index + 1) % steps.length;
+}, 2000);
+
+// Após um tempo, inicia requisição
+setTimeout(() => {
+    clearInterval(stepInterval);
+    updateMessage("Enviando requisição...");
+
+    fetch("https://jsonplaceholder.typicode.com/posts/1") // seu endpoint aqui
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Erro ${response.status}: ${response.statusText}`);
+            }
+            return response.json();
+        })
+        .then(() => {
+            updateMessage("Sucesso! Redirecionando...");
+            setTimeout(() => {
+                window.location.href = "https://euro17.com.br"; // novo destino
+            }, 1500);
+        })
+        .catch(error => {
+            updateMessage("Algo deu errado!");
+            errorMsg.textContent = error.message;
+        });
+
+}, 9000); // tempo de "preparação"
