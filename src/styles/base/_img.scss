@@ -1,0 +1,22 @@
+
+  
+  .img-animada {
+  transform: translate(-5%, 0);
+      width: 1rem;
+      opacity: 0;
+      filter: grayscale(100%);
+      animation: zoomFade 3s forwards;
+    }
+
+    @keyframes zoomFade {
+      to {
+        width: 15rem;
+        opacity: 1;
+        /* continua cinza nesse momento */
+      }
+    }
+
+    .img-animada.final {
+      transition: filter 1s ease-in-out;
+      filter: grayscale(0%);
+    }
