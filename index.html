@@ -2,6 +2,7 @@
 <html lang="pt-BR">
 
 <head>
+  <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Página de redirecionamento da Euro17." />
@@ -16,11 +17,20 @@
 <body>
   <main class="loader-container">
 
-    <img class="img-animada"  src="/src/assets/images/logo_euro.png" alt="Logo Euro17">
+    <img class="img-animada" src="/src/assets/images/logo_euro.png" alt="Logo Euro17">
     <div id="progress" class="progress-bar" style="visibility: hidden;"></div>
     <div id="status" class="status-message"></div>
     <div id="error" class="error"></div>
   </main>
+
+
+  <div class="backdrop" id="backdrop">
+    <div class="bottom-sheet" onclick="event.stopPropagation()">
+      <h2>Falha de conexão</h2>
+      <p>Não foi possível carregar as informações</p>
+      <button class="button">Recarregar</button>
+    </div>
+  </div>
 
 
 

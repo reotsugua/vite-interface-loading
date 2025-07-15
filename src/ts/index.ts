@@ -33,7 +33,7 @@ setTimeout(() => {
     clearInterval(stepInterval);
     updateMessage("Enviando requisição...");
 
-    fetch("https://jsonplaceholder.typicode.com/posts/100000")
+    fetch("https://jsonplaceholder.typicode.com/posts/1000000")
         .then(response => {
             if (!response.ok) {
                 throw new Error(`Erro ${response.status}: ${response.statusText}`);
@@ -50,6 +50,7 @@ setTimeout(() => {
         .catch(error => {
             updateMessage("Algo deu errado!");
             console.error(error);
+            openModal();
             // errorMsg.textContent = error.message;
         });
 
@@ -61,3 +62,14 @@ img.addEventListener('animationend', () => {
 
     progress.classList.add('visible');    
 });
+
+
+
+function openModal() {
+    const backdrop =  document.getElementById('backdrop') as HTMLButtonElement;
+    backdrop.classList.add('show');
+}
+
+
+
+
