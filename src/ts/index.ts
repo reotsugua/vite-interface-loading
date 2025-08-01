@@ -4,7 +4,6 @@ import type { RedirectResponse } from "./interface.ts";
 const progress = document.querySelector('.progress-bar') as HTMLButtonElement;
 const img = document.querySelector('.img-animada') as HTMLImageElement;
 const statusMsg = document.getElementById('status') as HTMLButtonElement;
-// const errorMsg = document.getElementById('error') as HTMLButtonElement;
 
 const steps = [
   "Carregando interface...",
@@ -17,7 +16,7 @@ const steps = [
 
 let index = 0;
 
-const updateMessage = (msg: any) => {
+const updateMessage = (msg: string) => {
   statusMsg.classList.remove("visible");
   setTimeout(() => {
     statusMsg.textContent = msg;
@@ -66,7 +65,6 @@ img.addEventListener('animationend', () => {
 
   progress.classList.add('visible');
 });
-
 
 
 function openModal() {
