@@ -1,7 +1,7 @@
 import type { RedirectResponse } from "./interface.ts";
 
 export async function getRedirectData(): Promise<RedirectResponse> {
-    const response = await fetch('/api/v1/Redirector/redirect', {
+    const response = await fetch('api/v1/Redirector/redirect', {
         method: 'GET',
         headers: {
             'x-api-key': 'X'
