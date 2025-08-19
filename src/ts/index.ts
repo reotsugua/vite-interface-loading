@@ -6,7 +6,7 @@ const img = document.querySelector('.img-animada') as HTMLImageElement;
 const statusMsg = document.getElementById('status') as HTMLButtonElement;
 
 const steps = [
-  "Carregando interface...",
+  // "Carregando interface...",
   "Conectando ao servidor...",
   "Verificando dados...",
   "Autenticando usuário...",
@@ -14,7 +14,8 @@ const steps = [
   "Finalizando processo..."
 ];
 
-let index = 0;
+let index: number = 0;
+const requestDelayMs: number = 1500;
 
 const updateMessage = (msg: string) => {
   statusMsg.classList.remove("visible");
@@ -43,9 +44,9 @@ setTimeout(async () => {
 
     console.log(result);
     updateMessage("Sucesso! Redirecionando...");
+    window.location.replace("https://euro17.com.br");
     // setTimeout(() => {
     //     // window.location.href = "https://euro17.com.br"; 
-    //     window.location.replace("https://euro17.com.br");
     // }, 1500);
   } catch (error) {
     updateMessage("Algo deu errado!");
@@ -57,7 +58,7 @@ setTimeout(async () => {
 
 
 
-}, 4000);
+}, requestDelayMs);
 
 
 img.addEventListener('animationend', () => {

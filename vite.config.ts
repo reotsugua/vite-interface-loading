@@ -1,11 +1,10 @@
-// vite.config.js
 import { defineConfig } from 'vite'
 
 export default defineConfig({
   server: {
     proxy: {
       '/api': {
-        target: 'http://localhost:5193',
+        target: 'https://dev.grupoeuro17.com.br/euro17-link-redirector',
         changeOrigin: true,
         secure: false
       }
