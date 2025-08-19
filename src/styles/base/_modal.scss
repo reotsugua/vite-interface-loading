@@ -4,14 +4,13 @@
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.5);
-  display: none; /* Oculto por padrão */
   justify-content: center;
   align-items: flex-end;
   z-index: 1000;
 }
 
 .backdrop.show {
-  display: flex;
+  display: flex !important;
   animation: fadeIn 0.3s ease forwards;
 }
 
@@ -30,6 +29,7 @@
   animation: slideUp 0.3s ease forwards;
   text-align: center;
 }
+
 
 @media (max-width: 600px) {
   .bottom-sheet {

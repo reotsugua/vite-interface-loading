@@ -6,10 +6,9 @@ const img = document.querySelector('.img-animada') as HTMLImageElement;
 const statusMsg = document.getElementById('status') as HTMLButtonElement;
 
 const steps = [
-  // "Carregando interface...",
-  "Conectando ao servidor...",
   "Verificando dados...",
-  "Autenticando usuário...",
+  "Aguarde um momento...",
+  "Carregando...",
   "Retornando dados...",
   "Finalizando processo..."
 ];
@@ -26,29 +25,32 @@ const updateMessage = (msg: string) => {
 };
 
 
+
 const stepInterval = setInterval(() => {
   updateMessage(steps[index]);
   index = (index + 1) % steps.length;
 }, 3000);
 
 
+
 setTimeout(async () => {
-  clearInterval(stepInterval);
-  updateMessage("Enviando requisição...");
-
+  steps[index] = "Enviando requisição..."
+  
   try {
-
+    
     const redirectData: RedirectResponse = await getRedirectData();
     const result = await fetchWithAuth(redirectData);
-
-
+    
+    
     console.log(result);
+    clearInterval(stepInterval);
     updateMessage("Sucesso! Redirecionando...");
-    window.location.replace("https://euro17.com.br");
+    // window.location.replace("https://euro17.com.br");
     // setTimeout(() => {
-    //     // window.location.href = "https://euro17.com.br"; 
-    // }, 1500);
-  } catch (error) {
+      //     // window.location.href = "https://euro17.com.br"; 
+      // }, 1500);
+    } catch (error) {
+    clearInterval(stepInterval);
     updateMessage("Algo deu errado!");
     console.error(error);
     openModal();
@@ -62,6 +64,7 @@ setTimeout(async () => {
 
 
 img.addEventListener('animationend', () => {
+  updateMessage("Conectando ao servidor...");
   img.classList.add('final');
 
   progress.classList.add('visible');
